@@ -24,8 +24,16 @@ public class AppServiceTest {
     @Test
     public void find() throws Exception {
         User user = new User("Peter", "Fox", "peter.fox@bla.com");
+
         User savedUser = appService.save(user);
+
+        assertThat(savedUser, notNullValue());
+        assertThat(savedUser.getFirstName(), equalTo(user.getFirstName()));
+        assertThat(savedUser.getLastName(), equalTo(user.getLastName()));
+        assertThat(savedUser.getEmailAddress(), equalTo(user.getEmailAddress()));
+
         User foundUser = appService.find(savedUser.getId());
+
         assertThat(foundUser, notNullValue());
         assertThat(foundUser.getFirstName(), equalTo(user.getFirstName()));
         assertThat(foundUser.getLastName(), equalTo(user.getLastName()));
