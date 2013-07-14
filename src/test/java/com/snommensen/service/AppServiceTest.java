@@ -2,6 +2,7 @@ package com.snommensen.service;
 
 import com.snommensen.AppConfig;
 import com.snommensen.domain.User;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,11 +22,19 @@ public class AppServiceTest {
     @Autowired
     AppService appService;
 
+    User user;
+
+    @Before
+    public void setUp() {
+        user = User.create("Peter", "Fox", "peter.fox@bla.com");
+    }
+
     @Test
-    public void find() throws Exception {
-        User user = new User("Peter", "Fox", "peter.fox@bla.com");
+    public void save_userIsSaved() throws Exception {
         User savedUser = appService.save(user);
+
         User foundUser = appService.find(savedUser.getId());
+
         assertThat(foundUser, notNullValue());
         assertThat(foundUser.getFirstName(), equalTo(user.getFirstName()));
         assertThat(foundUser.getLastName(), equalTo(user.getLastName()));

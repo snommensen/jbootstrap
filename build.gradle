@@ -10,6 +10,7 @@ ext {
     hibernateVersion = "4.2.2.Final"
     hibernateJpa2Version = "1.0.1.Final"
     hsqlVersion = "2.2.9"
+    guavaVersion = "14.0.1"
 }
 
 repositories {
@@ -32,4 +33,5 @@ dependencies {
     compile "org.hibernate:hibernate-entitymanager:$hibernateVersion"
     compile "org.hibernate.javax.persistence:hibernate-jpa-2.0-api:$hibernateJpa2Version"
     compile "org.hsqldb:hsqldb:$hsqlVersion"
+    compile "com.google.guava:guava:$guavaVersion"
 }
