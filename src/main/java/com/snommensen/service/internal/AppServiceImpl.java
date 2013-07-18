@@ -8,7 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import static java.util.Objects.requireNonNull;
+import static org.springframework.util.Assert.notNull;
 
 @ApplicationService
 public class AppServiceImpl implements AppService {
@@ -27,8 +27,7 @@ public class AppServiceImpl implements AppService {
 
     @Override
     public User save(User user) {
-        LOG.info("save( " + user + " )");
-        requireNonNull(user, "Given user is null!");
+        notNull(user, "Given user is null!");
         User savedUser = userRepository.save(user);
         LOG.debug("saved: " + savedUser);
         return savedUser;

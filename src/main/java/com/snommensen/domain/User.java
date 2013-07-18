@@ -6,8 +6,6 @@ import javax.persistence.NamedQuery;
 import java.io.Serializable;
 
 @Entity
-@NamedQuery(name = "User.findByEmailAddress",
-        query = "select u from User u where u.emailAddress = ?1")
 public class User implements Serializable {
 
     @Id
@@ -16,13 +14,17 @@ public class User implements Serializable {
     private String lastName;
     private String emailAddress;
 
-    public User() {
+    private User() {
     }
 
-    public User(String firstName, String lastName, String emailAddress) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.emailAddress = emailAddress;
+    public static User create(String firstName, String lastName, String emailAddress) {
+        User user = new User();
+
+        user.setFirstName(firstName);
+        user.setLastName(lastName);
+        user.setEmailAddress(emailAddress);
+
+        return user;
     }
 
     public long getId() {

@@ -13,5 +13,6 @@
 # Gradle Files #
 .gradle
 build
+gradle.properties
 
 
