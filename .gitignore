@@ -9,10 +9,9 @@
 *.iml
 *.ipr
 *.iws
+out
 
 # Gradle Files #
 .gradle
 build
 gradle.properties
-
-
