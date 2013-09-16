@@ -15,7 +15,7 @@ public class Main {
         ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
         AppService appService = context.getBean(AppService.class);
 
-        User user = User.make("Sönke", "Nommensen", "soenke.nommensen@draeger.com");
+        User user = User.make("Peter", "Fox", "peter.fox@bla.com");
 
         User savedUser = appService.save(user);
         LOG.info("Saved user = " + savedUser.toString());
