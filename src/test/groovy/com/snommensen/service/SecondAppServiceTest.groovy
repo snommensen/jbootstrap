@@ -22,19 +22,19 @@ class SecondAppServiceTest extends Specification {
 
     @Before
     public void makeUser() {
-        user = User.make("Peter", "Fox", "peter@fox@googlemail.com")
+        user = User.make("Peter", "Fox", "peterfox@bla.com")
     }
 
     @Test
-    def "when saving a user then the same user can be retrieved"() {
+    def "when saving a user then the same user can be found by its id"() {
         when:
         def savedUser = appService.save(user);
         def foundUser = appService.find(savedUser.getId());
 
         then:
         foundUser != null
-        foundUser.firstName == savedUser.firstName
-        foundUser.lastName == savedUser.lastName
+        foundUser.firstName    == savedUser.firstName
+        foundUser.lastName     == savedUser.lastName
         foundUser.emailAddress == savedUser.emailAddress
     }
 }
