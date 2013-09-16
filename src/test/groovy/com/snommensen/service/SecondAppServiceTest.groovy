@@ -28,11 +28,11 @@ class SecondAppServiceTest extends Specification {
     @Test
     def "when saving a user then the same user can be found by its id"() {
         when:
-        def savedUser = appService.save(user);
-        def foundUser = appService.find(savedUser.getId());
+        def savedUser = appService.save(user)
+        def foundUser = appService.find(savedUser.getId())
 
         then:
-        foundUser != null
+        foundUser              != null
         foundUser.firstName    == savedUser.firstName
         foundUser.lastName     == savedUser.lastName
         foundUser.emailAddress == savedUser.emailAddress
