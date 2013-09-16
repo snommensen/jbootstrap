@@ -26,7 +26,7 @@ public class AppServiceTest {
 
     @Before
     public void setUp() {
-        user = User.create("Peter", "Fox", "peter.fox@bla.com");
+        user = User.make("Peter", "Fox", "peter.fox@bla.com");
     }
 
     @Test

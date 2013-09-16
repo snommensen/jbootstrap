@@ -1,6 +1,8 @@
 package com.snommensen.domain;
 
+import javax.annotation.Generated;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import java.io.Serializable;
@@ -9,6 +11,7 @@ import java.io.Serializable;
 public class User implements Serializable {
 
     @Id
+    @GeneratedValue
     private long id;
     private String firstName;
     private String lastName;
@@ -17,7 +20,7 @@ public class User implements Serializable {
     private User() {
     }
 
-    public static User create(String firstName, String lastName, String emailAddress) {
+    public static User make(String firstName, String lastName, String emailAddress) {
         User user = new User();
 
         user.setFirstName(firstName);
@@ -29,10 +32,6 @@ public class User implements Serializable {
 
     public long getId() {
         return id;
-    }
-
-    protected void setId(long id) {
-        this.id = id;
     }
 
     public String getFirstName() {

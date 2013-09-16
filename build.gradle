@@ -2,28 +2,30 @@ apply plugin: "java"
 apply plugin: "idea"
 
 ext {
-    springVersion =  "3.2.3.RELEASE"
+    springVersion = "3.2.3.RELEASE"
     logbackVersion = "1.0.13"
     slf4jVersion = "1.7.5"
-    groovyVersion = "2.1.4"
+    groovyVersion = "2.1.6"
     junitVersion = "4.+"
     hibernateVersion = "4.2.2.Final"
     hibernateJpa2Version = "1.0.1.Final"
     hsqlVersion = "2.2.9"
     guavaVersion = "14.0.1"
+    spockVersion = "0.7+"
 }
 
 repositories {
-    mavenCentral()
+    maven { url "http://repo1.maven.org/maven2/" }
 }
 
 dependencies {
     testCompile "junit:junit:$junitVersion"
+    testCompile "org.spockframework:spock-core:$spockVersion"
+    testCompile "org.spockframework:spock-spring:$spockVersion"
 
     compile "org.slf4j:slf4j-api:$slf4jVersion"
     compile "ch.qos.logback:logback-classic:$logbackVersion"
     compile "ch.qos.logback:logback-core:$logbackVersion"
-    compile "org.codehaus.groovy:groovy:$groovyVersion"
     compile "org.springframework:spring-core:$springVersion"
     compile "org.springframework:spring-context:$springVersion"
     compile "org.springframework:spring-orm:$springVersion"
