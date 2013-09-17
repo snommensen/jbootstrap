@@ -1,8 +1,6 @@
 package com.snommensen.user
 
 import com.snommensen.AppConfig
-import com.snommensen.user.User
-import com.snommensen.user.AppService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.test.context.ContextConfiguration
 import org.springframework.transaction.annotation.Transactional
@@ -10,10 +8,10 @@ import spock.lang.Specification
 
 @ContextConfiguration(classes = [AppConfig.class])
 @Transactional
-class AppServiceSpecification extends Specification {
+class UserServiceSpecification extends Specification {
 
     @Autowired
-    AppService appService
+    UserService appService
     User user
 
     def setup() {

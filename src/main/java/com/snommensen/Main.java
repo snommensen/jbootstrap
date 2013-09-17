@@ -1,7 +1,7 @@
 package com.snommensen;
 
 import com.snommensen.user.User;
-import com.snommensen.user.AppService;
+import com.snommensen.user.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
@@ -13,11 +13,11 @@ public class Main {
 
     public static void main(String[] args) {
         ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
-        AppService appService = context.getBean(AppService.class);
+        UserService userService = context.getBean(UserService.class);
 
         User user = User.make("Peter", "Fox", "peter.fox@bla.com");
 
-        User savedUser = appService.save(user);
+        User savedUser = userService.save(user);
         LOG.info("Saved user = " + savedUser.toString());
     }
 }

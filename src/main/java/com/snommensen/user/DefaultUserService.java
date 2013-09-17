@@ -8,9 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import static org.springframework.util.Assert.notNull;
 
 @TransactionalService
-public class AppServiceImpl implements AppService {
+public class DefaultUserService implements UserService {
 
-    final static Logger LOG = LoggerFactory.getLogger(AppServiceImpl.class);
+    final static Logger LOG = LoggerFactory.getLogger(DefaultUserService.class);
     @Autowired
     private UserRepository userRepository;
 

@@ -1,8 +1,6 @@
 package com.snommensen.user;
 
 import com.snommensen.AppConfig;
-import com.snommensen.user.User;
-import com.snommensen.user.AppService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,10 +16,10 @@ import static org.hamcrest.MatcherAssert.assertThat;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {AppConfig.class})
 @Transactional
-public class AppServiceTest {
+public class UserServiceTest {
 
     @Autowired
-    AppService appService;
+    UserService userService;
 
     User user;
 
@@ -32,9 +30,9 @@ public class AppServiceTest {
 
     @Test
     public void save_userIsSaved() throws Exception {
-        User savedUser = appService.save(user);
+        User savedUser = userService.save(user);
 
-        User foundUser = appService.find(savedUser.getId());
+        User foundUser = userService.find(savedUser.getId());
 
         assertThat(foundUser, notNullValue());
         assertThat(foundUser.getFirstName(), equalTo(user.getFirstName()));

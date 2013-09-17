@@ -1,6 +1,6 @@
 package com.snommensen.user;
 
-public interface AppService {
+public interface UserService {
     User find(long id);
 
     User save(User user);

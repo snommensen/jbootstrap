@@ -1,7 +1,5 @@
 package com.snommensen;
 
-import com.snommensen.user.AppService;
-import com.snommensen.user.AppServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -23,11 +21,6 @@ import java.util.Properties;
 @EnableTransactionManagement
 @EnableJpaRepositories("com.snommensen.user")
 public class AppConfig {
-
-    @Bean
-    public AppService appService() {
-        return new AppServiceImpl();
-    }
 
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
