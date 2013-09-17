@@ -1,6 +1,4 @@
-package com.snommensen.service;
-
-import com.snommensen.domain.User;
+package com.snommensen.user;
 
 public interface AppService {
     User find(long id);

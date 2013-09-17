@@ -1,7 +1,7 @@
 package com.snommensen;
 
-import com.snommensen.service.AppService;
-import com.snommensen.service.internal.AppServiceImpl;
+import com.snommensen.user.AppService;
+import com.snommensen.user.AppServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -21,7 +21,7 @@ import java.util.Properties;
 @Configuration
 @ComponentScan("com.snommensen")
 @EnableTransactionManagement
-@EnableJpaRepositories("com.snommensen.repository")
+@EnableJpaRepositories("com.snommensen.user")
 public class AppConfig {
 
     @Bean
@@ -33,7 +33,7 @@ public class AppConfig {
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(dataSource());
-        em.setPackagesToScan("com.snommensen.domain");
+        em.setPackagesToScan("com.snommensen.user");
 
         JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         em.setJpaVendorAdapter(vendorAdapter);

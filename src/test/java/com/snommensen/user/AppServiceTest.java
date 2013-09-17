@@ -1,7 +1,8 @@
-package com.snommensen.service;
+package com.snommensen.user;
 
 import com.snommensen.AppConfig;
-import com.snommensen.domain.User;
+import com.snommensen.user.User;
+import com.snommensen.user.AppService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

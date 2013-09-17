@@ -1,16 +1,13 @@
-package com.snommensen.service.internal;
+package com.snommensen.user;
 
-import com.snommensen.annotation.ApplicationService;
-import com.snommensen.domain.User;
-import com.snommensen.repository.UserRepository;
-import com.snommensen.service.AppService;
+import com.snommensen.annotation.TransactionalService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import static org.springframework.util.Assert.notNull;
 
-@ApplicationService
+@TransactionalService
 public class AppServiceImpl implements AppService {
 
     final static Logger LOG = LoggerFactory.getLogger(AppServiceImpl.class);

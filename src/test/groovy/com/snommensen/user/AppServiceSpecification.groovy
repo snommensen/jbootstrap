@@ -1,40 +1,34 @@
-package com.snommensen.service
+package com.snommensen.user
 
 import com.snommensen.AppConfig
-import com.snommensen.domain.User
-import org.junit.Before
-import org.junit.Test
-import org.junit.runner.RunWith
+import com.snommensen.user.User
+import com.snommensen.user.AppService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.test.context.ContextConfiguration
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner
 import org.springframework.transaction.annotation.Transactional
 import spock.lang.Specification
 
-@RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = [AppConfig.class])
 @Transactional
-class SecondAppServiceTest extends Specification {
+class AppServiceSpecification extends Specification {
 
     @Autowired
     AppService appService
     User user
 
-    @Before
-    public void makeUser() {
+    def setup() {
         user = User.make("Peter", "Fox", "peterfox@bla.com")
     }
 
-    @Test
-    def "when saving a user then the same user can be found by its id"() {
+    def "when saving a user then the same user can be found again by its id"() {
         when:
         def savedUser = appService.save(user)
         def foundUser = appService.find(savedUser.getId())
 
         then:
-        foundUser              != null
-        foundUser.firstName    == savedUser.firstName
-        foundUser.lastName     == savedUser.lastName
+        foundUser != null
+        foundUser.firstName == savedUser.firstName
+        foundUser.lastName == savedUser.lastName
         foundUser.emailAddress == savedUser.emailAddress
     }
 }

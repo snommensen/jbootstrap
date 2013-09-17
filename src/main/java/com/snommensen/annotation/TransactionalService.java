@@ -12,6 +12,6 @@ import java.lang.annotation.Target;
 @Target(ElementType.TYPE)
 @Service
 @Transactional
-public @interface ApplicationService {
+public @interface TransactionalService {
     String value() default "";
 }

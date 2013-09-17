@@ -1,10 +1,8 @@
-package com.snommensen.domain;
+package com.snommensen.user;
 
-import javax.annotation.Generated;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.NamedQuery;
 import java.io.Serializable;
 
 @Entity

@@ -1,7 +1,7 @@
 package com.snommensen;
 
-import com.snommensen.domain.User;
-import com.snommensen.service.AppService;
+import com.snommensen.user.User;
+import com.snommensen.user.AppService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
